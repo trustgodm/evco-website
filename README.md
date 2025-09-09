@@ -1,73 +1,96 @@
-# Welcome to your Lovable project
+## EVCO Website – Production Guide
 
-## Project info
+A production-ready React + Vite site styled with Tailwind CSS and shadcn/ui components.
 
-**URL**: https://lovable.dev/projects/c66cfd0a-96e1-41bc-bc5e-6440f15e4fa6
+### Tech stack
+- **Build tool**: Vite
+- **Framework**: React + TypeScript
+- **Styling**: Tailwind CSS
+- **UI library**: shadcn/ui
 
-## How can I edit this code?
+### Requirements
+- Node.js 18+ (recommend LTS) and npm 9+
+- Optional: `pnpm` or `bun` if you prefer those managers
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/c66cfd0a-96e1-41bc-bc5e-6440f15e4fa6) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Install & develop
+```bash
+npm install
 npm run dev
 ```
+The dev server runs locally and supports hot reload.
 
-**Edit a file directly in GitHub**
+### Production build
+```bash
+npm run build   # outputs to dist/
+npm run preview # serve the built app locally for a quick check
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Environment variables
+This site is static and does not require runtime secrets. If you add any, create a `.env` file and prefix variables with `VITE_` to expose them to the client.
 
-**Use GitHub Codespaces**
+### Deployment options
+The output in `dist/` is a static site. Any static host or CDN works.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Vercel**
+  - Framework preset: Vite
+  - Build command: `npm run build`
+  - Output directory: `dist`
 
-## What technologies are used for this project?
+- **Netlify**
+  - Build command: `npm run build`
+  - Publish directory: `dist`
 
-This project is built with:
+- **GitHub Pages**
+  - Build locally or via Actions, then publish `dist/` to `gh-pages` branch.
+  - If deploying to a subpath, set `base` in `vite.config.ts` accordingly.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Nginx/Static server**
+  - Copy `dist/` to your server and serve as root.
+  - Example Nginx snippet:
+    ```nginx
+    server {
+      listen 80;
+      server_name example.com;
+      root /var/www/evco/dist;
+      location / { try_files $uri /index.html; }
+    }
+    ```
 
-## How can I deploy this project?
+### Commands
+- **npm run dev**: Start local dev server
+- **npm run build**: Create production build in `dist/`
+- **npm run preview**: Preview the production build
 
-Simply open [Lovable](https://lovable.dev/projects/c66cfd0a-96e1-41bc-bc5e-6440f15e4fa6) and click on Share -> Publish.
+### Quality gates (recommended)
+- Lint and type-check locally or in CI:
+```bash
+npm run lint || echo "configure eslint if needed"
+npx tsc --noEmit
+```
 
-## Can I connect a custom domain to my Lovable project?
+### File structure (key parts)
+```
+src/
+  components/    # UI sections and shadcn components
+  pages/          # Route-level pages
+  assets/         # Images used across the site
+  main.tsx        # App bootstrap
+  index.css       # Tailwind base
+```
 
-Yes, you can!
+### Updating hero image
+- Replace the file at `src/assets/hero-architecture.jpg` or import a new file in `src/components/HeroSection.tsx`.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Contact button behavior
+The “GET IN TOUCH” button smooth-scrolls to the contact form using the element with `id="contact"` in `src/components/ContactSection.tsx`.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### SEO and performance checklist
+- Set a descriptive `<title>` and meta tags in `index.html`.
+- Provide descriptive `alt` text for images.
+- Compress images and prefer modern formats (WebP/AVIF) when possible.
+- Enable CDN caching for `dist/` assets.
+
+### Support & maintenance
+- Keep dependencies updated.
+- Run a production build and `npm run preview` before deploying.
+- Monitor error logs via your hosting provider; this is a static site so failures are rare.

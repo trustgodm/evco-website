@@ -3,7 +3,7 @@ import heroImage from "@/assets/hero-architecture.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen flex items-center justify-start px-8 lg:px-16">
+    <section className="relative h-[70vh] flex items-center justify-start px-8 lg:px-16">
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}

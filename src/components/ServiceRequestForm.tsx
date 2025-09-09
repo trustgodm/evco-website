@@ -88,7 +88,6 @@ ${formData.services.map(service => `• ${service}`).join('\n')}
 Additional Notes:
 ${formData.additionalNotes}
 
-Next Steps:
 Kindly reach out to me at your earliest convenience to discuss pricing, scheduling, and any specific requirements.
 
 Thank you.`;

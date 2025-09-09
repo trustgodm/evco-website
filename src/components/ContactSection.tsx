@@ -3,7 +3,7 @@ import contactTeam from "@/assets/contact-team.jpg";
 
 const ContactSection = () => {
   return (
-    <section className="py-24 bg-background">
+    <section id="contact" className="py-24 bg-background">
       <div className="container mx-auto px-8 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>

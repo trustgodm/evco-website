@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import ServiceRequestForm from "@/components/ServiceRequestForm";
 import contactTeam from "@/assets/contact-team.jpg";
 
 const ContactSection = () => {
@@ -37,11 +37,7 @@ const ContactSection = () => {
                   Kindly fill in the service request form
                 </p>
                 
-                <Button 
-                  className="bg-navy hover:bg-navy-light text-white px-8 py-6 text-lg font-medium tracking-wide"
-                >
-                  SERVICE REQUEST FORM
-                </Button>
+                <ServiceRequestForm />
               </div>
             </div>
           </div>

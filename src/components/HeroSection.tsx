@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-architecture.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
+import Logo from "@/components/Logo";
 const HeroSection = () => {
   const mobile = useIsMobile();
   return (
@@ -14,7 +15,7 @@ const HeroSection = () => {
       
       <div className="relative z-10 max-w-2xl">
         <div className="mb-12">
-          <h1 className="text-7xl font-light text-white mb-2 tracking-tight">evco</h1>
+          <Logo variant="primary" size="xl" className="filter brightness-0 invert" />
         </div>
         
         {mobile ? <div className="mb-12">

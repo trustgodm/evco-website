@@ -1,5 +1,6 @@
 import ServiceRequestForm from "@/components/ServiceRequestForm";
 import contactTeam from "@/assets/contact-team.jpg";
+import Logo from "@/components/Logo";
 
 const ContactSection = () => {
   return (
@@ -38,6 +39,10 @@ const ContactSection = () => {
                 </p>
                 
                 <ServiceRequestForm />
+                
+                <div className="mt-12 pt-8 border-t border-gray-200">
+                  <Logo variant="secondary" size="md" className="opacity-80" />
+                </div>
               </div>
             </div>
           </div>

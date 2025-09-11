@@ -25,7 +25,7 @@ const Logo = ({ variant = "primary", size = "md", className = "" }: LogoProps) =
     <img 
       src={logoSrc}
       alt={`EVCO ${variant} logo`}
-      className={`${sizeClasses[size]} object-contain ${className}`}
+      className={`${sizeClasses[size]} object-contain rounded-none ${className}`}
     />
   );
 };

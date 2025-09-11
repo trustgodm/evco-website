@@ -34,11 +34,11 @@ const TestimonialsSection = () => {
               className="bg-white p-12 rounded-lg shadow-lg"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="w-20 h-20 rounded-full overflow-hidden mb-8">
+                <div className="w-20 h-20 rounded-none overflow-hidden mb-8">
                   <img 
                     src={testimonial.image} 
                     alt={testimonial.author}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-none"
                   />
                 </div>
                 

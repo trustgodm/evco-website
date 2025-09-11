@@ -51,7 +51,7 @@ const ContactSection = () => {
             <img 
               src={contactTeam} 
               alt="Professional team working together"
-              className="w-full h-auto rounded-lg shadow-lg"
+              className="w-full h-auto rounded-none shadow-lg"
             />
           </div>
         </div>

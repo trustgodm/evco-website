@@ -15,7 +15,7 @@ const HeroSection = () => {
       
       <div className="relative z-10 max-w-2xl">
         <div className="mb-12">
-          <Logo variant="primary" size="xl" className="filter brightness-0 invert" />
+          <Logo variant="primary" size="xl" className="drop-shadow-lg" />
         </div>
         
         {mobile ? <div className="mb-12">

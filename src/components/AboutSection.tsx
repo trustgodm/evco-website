@@ -11,7 +11,7 @@ const AboutSection = () => {
             </h2>
             
             <p className="text-lg leading-relaxed text-white/80">
-              We believe that a well-maintained and clean environment not only adds value but also creates comfort, safety, and peace of mind. That's why we go beyond simply providing a service — we build long-term relationships with our clients based on trust, transparency, and consistent results.
+              We believe that a well-maintained and clean environment not only adds value but also creates comfort, safety, and peace of mind. That's why we go beyond simply providing a servic we build long-term relationships with our clients based on trust, transparency, and consistent results.
             </p>
           </div>
           
@@ -19,7 +19,7 @@ const AboutSection = () => {
             <img 
               src={cleaningProfessional} 
               alt="Professional cleaner working in modern office"
-              className="w-full h-auto rounded-lg shadow-2xl"
+              className="w-full h-auto rounded-none shadow-2xl"
             />
           </div>
         </div>

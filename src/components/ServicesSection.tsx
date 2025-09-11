@@ -47,7 +47,7 @@ const ServicesSection = () => {
               <img 
                 src={service.image} 
                 alt={service.title}
-                className="w-full h-64 object-cover"
+                className="w-full h-64 object-cover rounded-none"
               />
             </div>
             

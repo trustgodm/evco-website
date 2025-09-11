@@ -1,5 +1,5 @@
 import { useState } from "react";
-eaimport { ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const FAQSection = () => {
   const [openItems, setOpenItems] = useState<number[]>([]);

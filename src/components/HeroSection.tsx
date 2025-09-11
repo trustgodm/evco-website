@@ -32,7 +32,7 @@ const HeroSection = () => {
         
         <Button 
           variant="outline" 
-          className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-sage-dark px-8 py-6 text-lg font-medium tracking-wide"
+          className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-sage-dark px-8 py-6 text-lg font-medium tracking-wide rounded-none"
           onClick={() => {
             const el = document.getElementById('contact');
             el?.scrollIntoView({ behavior: 'smooth', block: 'start' });

@@ -23,10 +23,10 @@ const ContactSection = () => {
               
               <div className="space-y-2">
                 <p className="text-dark-gray">
-                  <span className="font-medium">Tel.</span> (068) 785 1530
+                  <span className="font-medium">Tel.</span> <a href="tel:+27687851530" className="hover:text-sage transition-colors">(068) 785 1530</a>
                 </p>
                 <p className="text-dark-gray">
-                  <span className="font-medium">Email:</span> melusimanana62@gmail.com
+                  <span className="font-medium">Email:</span> <a href="mailto:melusimanana62@gmail.com" className="hover:text-sage transition-colors">melusimanana62@gmail.com</a>
                 </p>
                 <p className="text-dark-gray">
                   <span className="font-medium">Social:</span> @evco
@@ -41,7 +41,7 @@ const ContactSection = () => {
                 <ServiceRequestForm />
                 
                 <div className="mt-12 pt-8 border-t border-gray-200">
-                  <Logo variant="secondary" size="md" className="opacity-80" />
+                  <Logo variant="secondary" size="md" className="opacity-80 drop-shadow-lg" />
                 </div>
               </div>
             </div>

@@ -1,8 +1,13 @@
+import { useState, useRef } from "react";
 import outdoorCleaning from "@/assets/outdoor-cleaning.jpg";
 import maintenanceWork from "@/assets/maintenance-work.jpg";
 import specializedServices from "@/assets/specialized-services.jpg";
 
 const ServicesSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
   const services = [
     {
       title: "Cleaning solutions",
@@ -38,11 +43,40 @@ const ServicesSection = () => {
     }
   ];
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && currentSlide < services.length - 1) {
+      setCurrentSlide(currentSlide + 1);
+    }
+    if (isRightSwipe && currentSlide > 0) {
+      setCurrentSlide(currentSlide - 1);
+    }
+  };
+
   return (
     <section className="py-0">
       <div className="grid grid-cols-1 lg:grid-cols-3">
         {services.map((service, index) => (
-          <div key={index} className={`${service.bgColor} text-white relative min-h-[600px] flex flex-col`}>
+          <div 
+            key={index} 
+            className={`${service.bgColor} text-white relative min-h-[600px] flex flex-col`}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div className="flex-1 relative">
               <img 
                 src={service.image} 

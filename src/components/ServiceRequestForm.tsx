@@ -105,7 +105,7 @@ Thank you.`;
     <Dialog>
       <DialogTrigger asChild>
         <Button 
-          className="bg-navy hover:bg-navy-light text-white px-8 py-6 text-lg font-medium tracking-wide"
+          className="bg-navy hover:bg-navy-light text-white px-8 py-6 text-lg font-medium tracking-wide rounded-none"
         >
           SERVICE REQUEST FORM
         </Button>
@@ -204,7 +204,7 @@ Thank you.`;
 
           <Button 
             type="submit" 
-            className="w-full bg-sage hover:bg-sage-dark text-white"
+            className="w-full bg-sage hover:bg-sage-dark text-white rounded-none"
           >
             Send Request via WhatsApp
           </Button>

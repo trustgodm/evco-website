@@ -31,7 +31,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-white p-12 rounded-lg shadow-lg"
+              className="bg-white p-12 rounded-none shadow-lg"
             >
               <div className="flex flex-col items-center text-center">
                 <div className="w-20 h-20 rounded-none overflow-hidden mb-8">

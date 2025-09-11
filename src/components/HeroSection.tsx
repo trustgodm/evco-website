@@ -4,6 +4,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import Logo from "@/components/Logo";
 import AnimatedText from "@/components/AnimatedText";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const HeroSection = () => {
   const mobile = useIsMobile();
   const [scrollY, setScrollY] = useState(0);
@@ -27,11 +28,7 @@ const HeroSection = () => {
       </div>
       
       <div className="relative z-10 max-w-2xl">
-        <AnimatedText animation="slideInDown" delay={0.2}>
-          <div className="mb-12">
-            <Logo variant="primary" size="xl" className="drop-shadow-lg" />
-          </div>
-        </AnimatedText>
+         
         
         <AnimatedText animation="slideInUp" delay={0.5}>
           {mobile ? <div className="mb-12">
@@ -48,16 +45,14 @@ const HeroSection = () => {
         </AnimatedText>
         
         <AnimatedText animation="fadeIn" delay={0.8}>
-          <Button 
-            variant="outline" 
-            className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-sage-dark px-8 py-6 text-lg font-medium tracking-wide rounded-none transition-all duration-300 hover:scale-105"
-            onClick={() => {
-              const el = document.getElementById('contact');
-              el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
-          >
-            GET IN TOUCH
-          </Button>
+          <Link to="/contact">
+            <Button 
+              variant="outline" 
+              className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-sage-dark px-8 py-6 text-lg font-medium tracking-wide rounded-none transition-all duration-300 hover:scale-105"
+            >
+              GET IN TOUCH
+            </Button>
+          </Link>
         </AnimatedText>
       </div>
     </section>

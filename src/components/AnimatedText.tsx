@@ -18,21 +18,38 @@ const AnimatedText = ({
 }: AnimatedTextProps) => {
   const { elementRef, isVisible } = useScrollAnimation();
   const [showText, setShowText] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (isVisible) {
+    // Check if mobile on mount
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isVisible || isMobile) {
       const timer = setTimeout(() => {
         setShowText(true);
       }, delay * 1000);
       return () => clearTimeout(timer);
     }
-  }, [isVisible, delay]);
+  }, [isVisible, delay, isMobile]);
 
   const getAnimationClass = () => {
     const baseClass = 'transition-all ease-out';
     const durationClass = `duration-${Math.round(duration * 1000)}`;
     
-    if (!showText) {
+    // Always show content on mobile to prevent invisible text
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const shouldShow = showText || isMobile;
+    
+    if (!shouldShow) {
       switch (animation) {
         case 'slideInLeft':
           return `${baseClass} ${durationClass} transform -translate-x-full opacity-0`;

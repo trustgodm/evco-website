@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import client1 from '@/assets/client-1.jpg';
+import client2 from '@/assets/client-2.jpg';
 
 interface Testimonial {
   id: number;
@@ -18,19 +20,19 @@ const TestimonialCarousel = () => {
       id: 1,
       text: "EVCO has been cleaning our office for over two years. Their attention to detail and reliability is unmatched. Highly recommended!",
       author: "Sarah Johnson",
-      image: "/client-1.jpg"
+      image: client1
     },
     {
       id: 2,
       text: "The team at EVCO transformed our workspace. Professional, punctual, and thorough. They've become an essential part of our business.",
       author: "Michael Chen",
-      image: "/client-2.jpg"
+      image: client2
     },
     {
       id: 3,
       text: "Outstanding service! EVCO not only cleans but maintains our property beautifully. Their maintenance team is top-notch.",
       author: "Lisa Williams",
-      image: "/client-1.jpg"
+      image: client1
     }
   ];
 
